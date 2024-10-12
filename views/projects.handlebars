@@ -1,0 +1,55 @@
+<body>
+  <br /><br /><br />
+   {{#if session.isAdmin}}
+      <a class="addp" href="/project-new">Add a project</a>
+  {{else}}
+    <p class="addp">Admin can add new projects</p>
+  {{/if}}
+  <div class="projectdiv">
+   <ul>
+  {{#each projects}}
+    <li class="project-item">
+      <a href="/project/{{pid}}">
+        <h2>{{pname}}</h2>
+        {{pyear}}
+
+        <strong>, Type:</strong>
+        {{ptype}}
+        <p><strong>Description:</strong> {{pdesc}}</p>
+        <p><strong>Development tools:</strong> {{pdev}}</p>
+          <p><strong>Details... :</strong></p>
+        <img
+          src="{{pimageurl}}"
+          alt="Image of {{pname}}"
+          style="width:120px; height:auto;"
+        />
+      </a>
+      {{#if ../session.isAdmin}}          
+        <a class="delete" href="/project/delete/{{pid}}">Delete</a>
+         <a class="modify" href="/project/modify/{{pid}}">Modify</a>
+      {{/if}}
+    </li>
+  {{/each}}
+</ul>
+  </div>
+
+  <!-- Pagination Controls -->
+  <div class="pagination">
+    {{#if hasPreviousPage}}
+      <a href="/projects?page={{previousPage}}" class="prev">Previous</a>
+    {{/if}}
+
+    <!-- Page number links -->
+    {{#each pages}}
+      <a href="/projects?page={{this}}" 
+         class="page-number {{#ifEquals this ../currentPage}}active{{/ifEquals}}">
+        {{this}}
+      </a>
+    {{/each}}
+
+    {{#if hasNextPage}}
+      <a href="/projects?page={{nextPage}}" class="next">Next</a>
+    {{/if}}
+  </div>
+  
+</body>

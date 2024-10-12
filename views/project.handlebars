@@ -1,0 +1,18 @@
+<div class="middle">
+  <h1>{{project.pname}}</h1>
+  <p>{{project.pdesc}}</p>
+  <p>Year: {{project.pyear}}</p>
+  <p>Type of project: {{project.ptype}}</p>
+  <p>Skills associated with this project:</p>
+  <ul>
+    {{#each skills}}
+      <li>{{sname}} (Skill ID: {{sid}})</li>
+    {{/each}}
+  </ul>
+  <img
+    src="{{project.pimageurl}}"
+    alt="Image of {{project.pname}}"
+    style="width:120px; height:auto;"
+  />
+
+</div>

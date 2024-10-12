@@ -1,0 +1,40 @@
+<div class="middle">
+  <h1>User Management</h1>
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Admin</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{!-- Some of the following lines were taken and modified from chat gpt https://chatgpt.com/share/670a4685-c48c-800b-9677-f37fc7ecaa2a 10-10-2024. --}}
+      {{#each users}}
+        <tr>
+          <td>{{this.username}}</td>
+          <td>{{this.name}}</td>
+          <td>{{this.age}}</td>
+          <td>{{#if this.isAdmin}}Yes{{else}}No{{/if}}</td>
+          <td>
+            {{#if this.isAdmin}}
+              <span class="no-action">Not allowed</span>
+            {{else}}
+              <a
+                href="/users/edit/{{this.id}}"
+                class="action-link edit"
+              >Edit</a>
+              <span>|</span>
+              <a
+                href="/users/delete/{{this.id}}"
+                class="action-link delete2"
+              >Delete</a>
+            {{/if}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

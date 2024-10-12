@@ -1,0 +1,32 @@
+<body>
+  <div id="principal">
+
+    <div class="skillsdiv">
+      <ul>
+        {{#each skills}}
+          <li class="skillscard">
+            <p class="skill">Skill: {{sname}} </p>
+
+            <p class="skill">{{stype}}
+              -
+              {{sdesc}}</p>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  <div id="game" class="game">
+    <h2>Catch the Moving Box!</h2>
+    <p>Click the box as many times as you can in 10 seconds!</p>
+
+    <!-- Game container to limit box movement -->
+    <div class="game-container">
+      <div id="box" class="box"></div>
+    </div>
+
+    <p id="score">Score: 0</p>
+    <button onclick="startGame()">Start Game</button>
+  </div>
+
+</body>

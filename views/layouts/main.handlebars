@@ -1,0 +1,88 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="javaScript.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <!-- Hamburger menu -->
+        <div class="hamburger" onclick="toggleMenu()">
+          &#9776;
+        </div>
+
+        <!-- Regular links -->
+        <ul class="menu">
+          <li><a href="/">Home</a></li>
+          <div class="dropdown">
+            <button class="dropbtn">Projects/Skills
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="/projects">Projects</a>
+              <a href="skills">Skills</a>
+            </div>
+          </div>
+          <li><a href="/about">About</a></li>
+          <li><a href="/posts">Posts</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/profile">profile</a></li>
+
+          {{#if session.isLoggedIn}}
+            <p id="menulogin">
+              <img
+                src="{{session.profilePic}}"
+                alt="Profile Picture"
+                class="avatar"
+              />
+              Hello,
+              {{session.name}}
+              -
+              <a href="/logout">Logout</a>
+            </p>
+          {{else}}
+            <p id="menulogin"><a href="/login">Login</a></p>
+            <p class="reginhead"><a href="/register">Register</a></p>
+          {{/if}}
+        </ul>
+
+        <!-- Hamburger menu links (for mobile) -->
+        <ul class="mobile-menu" id="mobileMenu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/skills">skills</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/posts">Posts</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/profile">Profile</a></li>
+
+          {{#if session.isLoggedIn}}
+            <p id="menulogin">
+              <img
+                src="{{session.profilePic}}"
+                alt="Profile Picture"
+                class="avatar"
+              />
+              Hello,
+              {{session.name}}
+              -
+              <a href="/logout">Logout</a></p>
+          {{else}}
+            <li id="menulogin"><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+          {{/if}}
+        </ul>
+
+      </nav>
+    </header>
+    <div class="spacer"></div>
+    {{{body}}}
+  </body>
+</html>

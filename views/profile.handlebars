@@ -1,0 +1,35 @@
+<div class="profile">
+  <h2>Welcome, {{session.name}}</h2>
+
+  {{#if session.profilePic}}
+    <img
+      src="{{session.profilePic}}"
+      alt="Profile Picture"
+      class="profilepicbig"
+    />
+  {{else}}
+    <p>You have not uploaded a profile picture yet.</p>
+  {{/if}}
+
+  <form
+    action="/upload-profile-pic"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <label for="profilePic">Upload Profile Picture:</label>
+    <input
+      type="file"
+      name="profilePic"
+      id="profilePic"
+      accept="image/*"
+      required
+    />
+    <button type="submit">Upload</button>
+  </form>
+</div>
+
+{{#if session.isAdmin}}
+  <a class="instruction3" href="/users">Mange users</a>
+{{else}}
+  <p class="instruction4">Admin can edit and delete users</p>
+{{/if}}

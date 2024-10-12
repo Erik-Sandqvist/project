@@ -1,0 +1,123 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<body>
+
+  <div id="principal" class="homediv">
+    <div class="about">
+      <div
+        class="intro intro1"
+        onmouseover="intro1heigh(this)"
+        onmouseout="intro1(this)"
+      >
+        <a href="/contact">
+          <p class="txtinbox">
+            My name is Erik Sandqvist and i'm 20 years old. I'm from Jönköping
+            and I have lived here my whole life. I like to write code and play
+            sports. I enjoy making things better, I think it is fun to create
+            and find solutions. I'm currently working at a warehouse while I
+            study.
+            <br />
+            <br />
+            Contact me
+          </p>
+        </a>
+      </div>
+
+      <div
+        class="intro intro2"
+        onmouseover="intro1heigh(this)"
+        onmouseout="intro1(this)"
+      >
+        <a href="/projects">
+          <p class="projects">Projects<br /><br />
+            Projects that I have been working on in the past
+          </p>
+
+          <i class="fa fa-camera"></i>
+        </a>
+      </div>
+      <div
+        class="intro intro3"
+        onmouseover="intro1heigh(this)"
+        onmouseout="intro1(this)"
+      >
+        <a href="/about">
+          <p class="txtinbox">CV<br /><br />Information about me, like education
+            and previous workplaces.</p>
+        </a>
+      </div>
+    </div>
+    <!-- Closing missing <div class="about"> -->
+
+    {{!-- <div class="projectdiv">
+      <ul>
+        {{#each projects}}
+          <li class="project-item">
+            <h2>{{pname}}</h2>
+            {{pyear}}
+
+            <strong>, Type:</strong>
+            {{ptype}}
+            <p><strong>Description:</strong> {{pdesc}}</p>
+            <p><strong>Development tools:</strong> {{pdev}}</p>
+            <img
+              src="{{pimageurl}}"
+              alt="Image of {{pname}}"
+              style="width:120px; height:auto;"
+            />
+          </li>
+        {{/each}}
+      </ul>
+    </div> --}}
+
+    <div class="postdiv">
+      <p class="instruction">Here you can add a message on the site</p>
+      {{#if isLoggedIn}}
+        <form action="/posts" method="POST">
+          <textarea
+            class="write"
+            name="message"
+            placeholder="Write your message here (max 20 words)"
+          ></textarea><br />
+          <button class="postbutton" type="submit">Post</button>
+        </form>
+      {{else}}
+        <p class="instruction2">You must be logged in to post a message.</p>
+      {{/if}}
+
+      <ul>
+        {{#each posts}}
+          <li class="posts"><strong>{{this.username}}:</strong>
+            {{this.message}}</li>
+        {{/each}}
+      </ul>
+    </div>
+
+  </div>
+  <div class="scroll-container">
+    <img
+      src="/pics/skautologo.png"
+      alt="Cinque Terre"
+      width="400"
+      height="200"
+    />
+    <img
+      src="/pics/weatherapp.png"
+      alt="Cinque Terre"
+      width="400"
+      height="200"
+    />
+    <img src="/pics/patches.png" alt="Cinque Terre" width="400" height="200" />
+    <img src="/pics/ff.png" alt="Cinque Terre" width="300" height="200" />
+    <img src="/pics/logov4u.svg" alt="Cinque Terre" width="400" height="200" />
+
+    <img
+      src="/pics/zonne-cover.jpeg"
+      alt="Cinque Terre"
+      width="300"
+      height="300"
+    />
+  </div>
+
+</body>

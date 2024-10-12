@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="login-reg.css" />
+<section>
+
+  <div class="signin">
+
+    <div class="content">
+      <p class="loginhead">Login</p>
+      <form class="form" action="/login" method="post">
+        <div class="inputBox">
+          <input type="text" id="username" name="username" />
+          <i>Username</i>
+        </div>
+        <div class="inputBox">
+          <input type="password" id="password" name="password" />
+          <i>Password</i>
+        </div>
+        <div class="inputBox">
+          <input type="submit" name="action" value="Login" />
+          <br /><br />
+          {{! <a href="/register" class="registerbtn">Register</a> }}
+        </div>
+      </form>
+
+      {{#if error}}
+        <div class="error">{{error}}</div>
+      {{/if}}
+      {{#if message}}
+        <div class="error">{{message}}</div>
+      {{/if}}
+    </div>
+  </div>
+</section>

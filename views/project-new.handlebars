@@ -1,0 +1,45 @@
+<div id="principal" class="addpform"> 
+    {{#if project.pid}}
+    <h1>Modify project</h1>
+    {{else}}
+    <h1>New project</h1>
+    {{/if}}
+
+    <div class="mytextcard">
+        {{#if project.pid}}
+        <form action="/project/modify/{{project.pid}}" method="POST">
+        {{else}}
+        <form action="/project/new" method="POST">
+        {{/if}}
+
+            <label for="projname">Name:</label>
+            <input type="text" id="projname" name="projname" required="required"
+                {{#if project.pname}} value="{{project.pname}}" {{/if}} />
+
+            <label for="projyear">Year:</label>
+            <input type="number" id="projyear" name="projyear" min="1990" max="2050" required="required"
+                {{#if project.pyear}} value="{{project.pyear}}" {{/if}} /><br />
+
+            <label for="projdesc">Description:</label>
+            <textarea id="projdesc" name="projdesc" required="required">{{#if project.pdesc}}{{project.pdesc}}{{/if}}</textarea>
+            <br />
+
+            <label for="projtype">Type:</label>
+            <select name="projtype" id="projtype">
+                <option value="Research" {{#if (eq project.ptype "Research")}}selected="selected"{{/if}}>Research</option>
+                <option value="Learning" {{#if (eq project.ptype "Learning")}}selected="selected"{{/if}}>Learning</option>
+                <option value="Personal" {{#if (eq project.ptype "Personal")}}selected="selected"{{/if}}>Personal</option>
+            </select><br />
+
+             <label for="projdev">Development tool:</label>
+            <textarea id="projdev" name="projdev" required="required">{{#if project.pdev}}{{project.pdev}}{{/if}}</textarea>
+            <br />
+
+            <label for="projurl">URL:</label>
+            <input type="text" id="projurl" name="projurl" placeholder="/img/something.png" required="required"
+                {{#if project.pimgURL}} value="{{project.pimgURL}}" {{/if}} />
+
+            <input type="submit" value="{{#if project.pid}}Modify project{{else}}Create new project{{/if}}" />
+        </form>
+    </div>
+</div>

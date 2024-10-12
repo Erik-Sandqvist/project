@@ -1,0 +1,23 @@
+<div class="postdiv">
+  <p class="instruction">Here you can add a message on the site</p>
+
+  {{#if isLoggedIn}}
+    <form action="/posts" method="POST">
+      <textarea
+        class="write"
+        name="message"
+        placeholder="Write your message here (max 20 words)"
+      ></textarea><br />
+      <button class="postbutton" type="submit">Post</button>
+    </form>
+  {{else}}
+    <p class="instruction2">You must be logged in to post a message.</p>
+  {{/if}}
+
+  <ul>
+    {{#each posts}}
+      <li class="posts"><strong>{{this.username}}:</strong>
+        {{this.message}}</li>
+    {{/each}}
+  </ul>
+</div>
