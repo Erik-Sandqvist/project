@@ -4,7 +4,7 @@
 
 // Admin credentials
 const adminName = "erik";
-//const adminPassword = "1234";
+//const adminPassword = 
 const adminPassword =
   "$2b$12$YRDhDifbYeg3sVWfvtg9X.v9DpchlakY4b8EQrzYYI69jh0IrUp3q";
 
